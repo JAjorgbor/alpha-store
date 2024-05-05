@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <Meta />
       <main className={`py-14 mx-auto w-[85%] max-w-screen-xl`}>
-        <Card className="bg-foreground-200 p-12 bg-[url('https://picsum.photos/1000/1000')] bg-cover text-white">
+        <Card className="bg-foreground-200 p-8 bg-[url('https://picsum.photos/1000/1000')] bg-cover text-white">
           <CardBody className="w-full">
             <div className="md:w-1/2 space-y-3">
               <h2 className="font-bold text-2xl ">

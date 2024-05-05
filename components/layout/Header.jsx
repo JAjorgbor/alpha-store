@@ -29,12 +29,12 @@ export default function Header() {
 
   return (
     <Navbar
-      className="lg:px-4 py-3  mx-auto z-50 backdrop-blur-sm bg-[rgba(255,255,255,0.6)] sticky top-0 justify-center"
+      className="lg:px-[10%] mx-auto z-50 backdrop-blur-sm justify-center max-w-screen-2xl "
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >
-      <NavbarContent>
-        <NavbarItem className="lg:hidden">
+      <NavbarContent className="lg:hidden">
+        <NavbarItem>
           <HamburgerButton
             size={25}
             onToggle={(toggled) => setIsMenuOpen(toggled)}
@@ -42,7 +42,7 @@ export default function Header() {
             color="gray"
           />
         </NavbarItem>
-        <NavbarBrand className="lg:hidden">
+        <NavbarBrand>
           <Logo
             className={`text-sm  ${
               expandSearchField ? "hidden " : ""
@@ -137,7 +137,7 @@ export default function Header() {
           <ShoppingCart size={20} />
         </NavbarItem>
       </NavbarContent>
-      <NavbarMenu className="h-[500px] fixed top-[4.5rem] lg:hidden w-full backdrop-blur-sm bg-[rgba(255,255,255,0.6)]">
+      <NavbarMenu className="h-[500px] lg:hidden w-full backdrop-blur-sm ">
         {menu.map((item, index) => (
           <NavbarMenuItem
             key={index}

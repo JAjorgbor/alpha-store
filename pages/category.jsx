@@ -1,11 +1,12 @@
-import CategoryCard from "@/components/cards/CategoryCard";
 import ProductCard from "@/components/cards/ProductCard";
-import { BreadcrumbItem, Breadcrumbs } from "@nextui-org/react";
+import Meta from "@/components/Meta";
+import { BreadcrumbItem, Breadcrumbs, Pagination } from "@nextui-org/react";
 import Image from "next/image";
 
 const Category = () => {
   return (
     <>
+      <Meta />
       <Breadcrumbs className="p-4 max-w-screen-xl mx-auto">
         <BreadcrumbItem>Home</BreadcrumbItem>
         <BreadcrumbItem>Category Name</BreadcrumbItem>
@@ -25,13 +26,16 @@ const Category = () => {
           />
         </div>
       </div>
-      <div className="mx-auto w-3/5 my-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10">
+      <div className="mx-auto max-w-screen-lg w-3/5 my-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 justify-center">
           {Array(16)
             .fill(null)
             .map((item, index) => (
               <ProductCard key={index} />
             ))}
+          <div className="col-span-3 flex justify-center ">
+            <Pagination total={10} initialPage={1} showControls />
+          </div>
         </div>
       </div>
     </>

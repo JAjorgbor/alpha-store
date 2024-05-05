@@ -17,7 +17,7 @@ const ProductCard = () => {
                 className="w-full rounded-xl"
               />
             </div>
-            <div className="p-5">
+            <div>
               <p className="text-sm">
                 Dyson V11 Cordeless Vacum Cleaner | Blue | Good condition
               </p>
