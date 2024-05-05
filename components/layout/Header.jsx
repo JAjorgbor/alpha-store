@@ -59,11 +59,15 @@ export default function Header() {
           <Link className="text-foreground hover:text-primary" href="#"></Link>
         </NavbarItem>
         {menu.map((item, index) => (
-          <NavbarItem isActive={item.route == router.pathname} key={index}>
+          <NavbarItem key={index}>
             <Link
               href={item.route}
               aria-current="page"
-              className="text-foreground hover:text-primary"
+              className={`text-foreground hover:text-primary ${
+                router.pathname == item.route
+                  ? "font-bold text-primary"
+                  : "hover:text-primary"
+              }`}
             >
               {item.label}
             </Link>
