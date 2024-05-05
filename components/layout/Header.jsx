@@ -29,8 +29,7 @@ export default function Header() {
 
   return (
     <Navbar
-      className="lg:px-4 py-3 max-w-screen-xl mx-auto z-50 backdrop-blur-sm bg-[rgba(255,255,255,0.6)]"
-      position="sticky"
+      className="lg:px-4 py-3  mx-auto z-50 backdrop-blur-sm bg-[rgba(255,255,255,0.6)] sticky top-0 justify-center"
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >
@@ -45,9 +44,9 @@ export default function Header() {
         </NavbarItem>
         <NavbarBrand className="lg:hidden">
           <Logo
-            className={`${
-              expandSearchField ? "text-sm md:text-2xl" : ""
-            } transition-all`}
+            className={`text-sm  ${
+              expandSearchField ? "hidden " : ""
+            } sm:block sm:text-2xl  transition-all`}
           />
         </NavbarBrand>
       </NavbarContent>
@@ -77,9 +76,10 @@ export default function Header() {
       <NavbarContent justify="end">
         <NavbarItem>
           <div
-            className={` transition-all w-[38px] ${
-              expandSearchField ? "w-[180px]" : ""
-            } md:w-[250px] overflow-hidden  rounded-xl flex`}
+            // className={` transition-all w-[38px] ${
+            //   expandSearchField ? "w-[250px]" : ""
+            // } md:w-[250px] overflow-hidden rounded-xl flex`}
+            className="rounded-xl flex"
           >
             <button
               type="button"
@@ -95,14 +95,17 @@ export default function Header() {
             <Input
               type="search"
               placeholder="Search Store"
-              className="min-w-[200px] rounded-l-none"
+              // className="min-w-[200px] rounded-none"
+              className={` transition-transform transform origin-left ${
+                expandSearchField ? "scale-x-1" : "scale-x-0 w-0"
+              } md:scale-x-1 overflow-hidden `}
               startContent={
                 <Search className=" hidden md:inline-block " size={20} />
               }
             />
           </div>
         </NavbarItem>
-        <NavbarItem className=" ">
+        <NavbarItem className={`${expandSearchField ? "hidden" : ""} md:block`}>
           <Button
             href="#"
             as={Link}
@@ -114,7 +117,7 @@ export default function Header() {
             Login
           </Button>
         </NavbarItem>
-        <NavbarItem>
+        <NavbarItem className={`${expandSearchField ? "hidden" : ""} md:block`}>
           <Button
             as={Link}
             color="primary"
@@ -126,7 +129,11 @@ export default function Header() {
             Register
           </Button>
         </NavbarItem>
-        <NavbarItem className="text-primary">
+        <NavbarItem
+          className={`${
+            expandSearchField ? "hidden" : ""
+          } text-primary md:block`}
+        >
           <ShoppingCart size={20} />
         </NavbarItem>
       </NavbarContent>
@@ -136,7 +143,7 @@ export default function Header() {
             key={index}
             className={`transition-all  transform hover:translate-x-5 hover:font-bold hover:text-white hover:bg-primary px-3 py-1 rounded-lg duration-200 ${
               item.route == router.pathname
-                ? "text-primary font-bold bg-foreground-200 translate-x-5"
+                ? "text-primary font-bold bg-foreground-200"
                 : ""
             }`}
           >
