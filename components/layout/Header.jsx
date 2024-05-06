@@ -44,7 +44,7 @@ export default function Header() {
         </NavbarItem>
         <NavbarBrand>
           <Logo
-            className={`text-sm  ${
+            className={`text-xs sm:text-sm  ${
               expandSearchField ? "hidden " : ""
             } sm:block sm:text-2xl  transition-all`}
           />
@@ -73,13 +73,12 @@ export default function Header() {
           </NavbarItem>
         ))}
       </NavbarContent>
-      <NavbarContent justify="end">
+      <NavbarContent justify="end" className="gap-2 md:gap-3">
         <NavbarItem>
           <div
-            // className={` transition-all w-[38px] ${
-            //   expandSearchField ? "w-[250px]" : ""
-            // } md:w-[250px] overflow-hidden rounded-xl flex`}
-            className="rounded-xl flex"
+            className={` transition-all  ${
+              expandSearchField ? "w-[250px]" : "w-[38px]"
+            } md:w-[250px] overflow-hidden rounded-xl flex`}
           >
             <button
               type="button"
@@ -95,10 +94,10 @@ export default function Header() {
             <Input
               type="search"
               placeholder="Search Store"
-              // className="min-w-[200px] rounded-none"
-              className={` transition-transform transform origin-left ${
-                expandSearchField ? "scale-x-1" : "scale-x-0 w-0"
-              } md:scale-x-1 overflow-hidden `}
+              className="min-w-[200px] rounded-none"
+              // className={` transition-transform transform origin-left ${
+              //   expandSearchField ? "scale-x-1" : "scale-x-0 w-0"
+              // } md:scale-x-1 overflow-hidden `}
               startContent={
                 <Search className=" hidden md:inline-block " size={20} />
               }
@@ -129,13 +128,13 @@ export default function Header() {
             Register
           </Button>
         </NavbarItem>
-        <NavbarItem
+        {/* <NavbarItem
           className={`${
             expandSearchField ? "hidden" : ""
           } text-primary md:block`}
         >
           <ShoppingCart size={20} />
-        </NavbarItem>
+        </NavbarItem> */}
       </NavbarContent>
       <NavbarMenu className="h-[500px] lg:hidden w-full backdrop-blur-sm ">
         {menu.map((item, index) => (

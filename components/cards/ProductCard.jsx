@@ -2,10 +2,12 @@ import { Card, CardBody } from "@nextui-org/react";
 import Image from "next/image";
 import { Heart } from "react-feather";
 
-const ProductCard = () => {
+const ProductCard = ({ className }) => {
   return (
     <>
-      <Card className="w-[250px] min-w-[250px] bg-foreground-100">
+      <Card
+        className={`w-[250px] min-w-[250px] bg-foreground-100 ${className}`}
+      >
         <CardBody>
           <div className="space-y-4 ">
             <div className="relative">

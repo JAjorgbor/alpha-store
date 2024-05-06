@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const CategoryCard = ({ categoryName = "Category Name" }) => {
   return (
     <>
-      <div className="space-y-4">
+      <Link href="/category" className="space-y-4 block">
         <div className="bg-foreground-200 rounded-full md:p-8 ">
           <Image
             src="https://picsum.photos/100/100"
@@ -14,7 +15,7 @@ const CategoryCard = ({ categoryName = "Category Name" }) => {
           />
         </div>
         <div className="font-bold text-center">{categoryName}</div>
-      </div>
+      </Link>
     </>
   );
 };

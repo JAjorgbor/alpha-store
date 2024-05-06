@@ -26,16 +26,16 @@ const Category = () => {
           />
         </div>
       </div>
-      <div className="mx-auto max-w-screen-lg w-3/5 my-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 justify-center">
+      <div className="mx-auto max-w-screen-lg w-4/5 my-12 space-y-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 place-items-center">
           {Array(16)
             .fill(null)
             .map((item, index) => (
-              <ProductCard key={index} />
+              <ProductCard key={index} className="md:w-[300px] lg:w-[250px]" />
             ))}
-          <div className="col-span-3 flex justify-center ">
-            <Pagination total={10} initialPage={1} showControls />
-          </div>
+        </div>
+        <div className="flex justify-center">
+          <Pagination total={10} initialPage={1} showControls />
         </div>
       </div>
     </>
