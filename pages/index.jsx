@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Button } from "@nextui-org/button";
 import { Card, CardBody } from "@nextui-org/react";
 import CategoryCard from "@/components/cards/CategoryCard";
-import ProductCard from "@/components/cards/ProductCard";
+import ProductCard from "@/components/product/ProductCard";
 import Meta from "@/components/Meta";
 
 export default function Home() {

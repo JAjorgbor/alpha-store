@@ -1,4 +1,4 @@
-import ProductCard from "@/components/cards/ProductCard";
+import ProductCard from "@/components/product/ProductCard";
 import Meta from "@/components/Meta";
 import { BreadcrumbItem, Breadcrumbs, Pagination } from "@nextui-org/react";
 import Image from "next/image";

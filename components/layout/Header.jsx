@@ -13,7 +13,7 @@ import { Sling as HamburgerButton } from "hamburger-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { ArrowRight, Search, ShoppingCart } from "react-feather";
+import { ArrowRight, Search } from "react-feather";
 
 export default function Header() {
   const router = useRouter();
@@ -26,7 +26,7 @@ export default function Header() {
     { label: "Categories", route: "/categories" },
     { label: "Products", route: "/products" },
   ];
-
+  const authRoutes = ["/login", "/register"];
   return (
     <Navbar
       className="lg:px-[10%] mx-auto z-50 backdrop-blur-sm justify-center max-w-screen-2xl "
@@ -50,6 +50,7 @@ export default function Header() {
           />
         </NavbarBrand>
       </NavbarContent>
+
       <NavbarContent className="hidden lg:flex gap-4 " justify="start">
         <NavbarBrand className="mr-5">
           <Logo />
@@ -73,69 +74,79 @@ export default function Header() {
           </NavbarItem>
         ))}
       </NavbarContent>
-      <NavbarContent justify="end" className="gap-2 md:gap-3">
-        <NavbarItem>
-          <div
-            className={` transition-all  ${
-              expandSearchField ? "w-[250px]" : "w-[38px]"
-            } md:w-[250px] overflow-hidden rounded-xl flex`}
-          >
-            <button
-              type="button"
-              onClick={() => setExpandSearchField(!expandSearchField)}
-              className={`px-2 rounded-l-xl bg-primary  border border-primary text-white md:hidden`}
+      {!authRoutes.includes(router.pathname) && (
+        <>
+          <NavbarContent justify="end" className="gap-2 md:gap-3">
+            <NavbarItem>
+              <div
+                className={` transition-all  ${
+                  expandSearchField ? "w-[250px]" : "w-[38px]"
+                } md:w-[250px] overflow-hidden rounded-xl flex`}
+              >
+                <button
+                  type="button"
+                  onClick={() => setExpandSearchField(!expandSearchField)}
+                  className={`px-2 rounded-l-xl bg-primary  border border-primary text-white md:hidden`}
+                >
+                  {!expandSearchField ? (
+                    <Search className="  md:hidden" size={20} />
+                  ) : (
+                    <ArrowRight className=" md:hidden" size={20} />
+                  )}
+                </button>
+                <Input
+                  type="search"
+                  placeholder="Search Store"
+                  className="min-w-[200px] rounded-none"
+                  // className={` transition-transform transform origin-left ${
+                  //   expandSearchField ? "scale-x-1" : "scale-x-0 w-0"
+                  // } md:scale-x-1 overflow-hidden `}
+                  startContent={
+                    <Search className=" hidden md:inline-block " size={20} />
+                  }
+                />
+              </div>
+            </NavbarItem>
+
+            <NavbarItem
+              className={`${expandSearchField ? "hidden" : ""} md:block`}
             >
-              {!expandSearchField ? (
-                <Search className="  md:hidden" size={20} />
-              ) : (
-                <ArrowRight className=" md:hidden" size={20} />
-              )}
-            </button>
-            <Input
-              type="search"
-              placeholder="Search Store"
-              className="min-w-[200px] rounded-none"
-              // className={` transition-transform transform origin-left ${
-              //   expandSearchField ? "scale-x-1" : "scale-x-0 w-0"
-              // } md:scale-x-1 overflow-hidden `}
-              startContent={
-                <Search className=" hidden md:inline-block " size={20} />
-              }
-            />
-          </div>
-        </NavbarItem>
-        <NavbarItem className={`${expandSearchField ? "hidden" : ""} md:block`}>
-          <Button
-            href="#"
-            as={Link}
-            size="sm"
-            variant="light"
-            color="primary"
-            className="font-bold"
-          >
-            Login
-          </Button>
-        </NavbarItem>
-        <NavbarItem className={`${expandSearchField ? "hidden" : ""} md:block`}>
-          <Button
-            as={Link}
-            color="primary"
-            href="#"
-            size="sm"
-            variant="solid"
-            className="font-bold"
-          >
-            Register
-          </Button>
-        </NavbarItem>
-        {/* <NavbarItem
+              <Button
+                href="/login"
+                as={Link}
+                size="sm"
+                variant="light"
+                color="primary"
+                className="font-bold"
+              >
+                Login
+              </Button>
+            </NavbarItem>
+            <NavbarItem
+              className={`${expandSearchField ? "hidden" : ""} md:block`}
+            >
+              <Button
+                as={Link}
+                href="/register"
+                color="primary"
+                size="sm"
+                variant="solid"
+                className="font-bold"
+              >
+                Register
+              </Button>
+            </NavbarItem>
+
+            {/* <NavbarItem
           className={`${
             expandSearchField ? "hidden" : ""
           } text-primary md:block`}
         >
           <ShoppingCart size={20} />
         </NavbarItem> */}
-      </NavbarContent>
+          </NavbarContent>
+        </>
+      )}
       <NavbarMenu className="h-[500px] lg:hidden w-full backdrop-blur-sm ">
         {menu.map((item, index) => (
           <NavbarMenuItem
