@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <Meta />
       <main className={`py-14 mx-auto w-[85%] max-w-screen-xl`}>
-        <Card className="bg-foreground-200 p-8 bg-[url('https://picsum.photos/1000/1000')] bg-cover text-white">
+        <Card className="bg-foreground-200 p-8 bg-image bg-cover text-white">
           <CardBody className="w-full">
             <div className="md:w-1/2 space-y-3">
               <h2 className="font-bold text-2xl ">
@@ -30,8 +30,11 @@ export default function Home() {
           </CardBody>
         </Card>
         <div className="mx-auto w-[95%]">
-          <Card className="p-8 bg-foreground-100 my-10 ">
-            <CardBody className="flex sm:flex-row items-center justify-between gap-5">
+          <Card
+            className="p-8 bg-foreground-100  my-10 "
+            style={{ backgroundColor: "#f4f4f4" }}
+          >
+            <CardBody className="flex sm:flex-row  items-center justify-between gap-5">
               <div className="flex-grow">
                 <h2 className="font-bold text-2xl">
                   No fakes. No fraud. No doubt.
