@@ -2,6 +2,7 @@ import { Card, CardBody } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Heart } from "react-feather";
+import productImage from "../../public/img/products/product-place.jpg";
 
 const ProductCard = ({ className }) => {
   return (
@@ -14,7 +15,7 @@ const ProductCard = ({ className }) => {
             <div className="space-y-4 ">
               <div className="relative">
                 <Image
-                  src="https://picsum.photos/250/250"
+                  src={productImage}
                   height={250}
                   width={250}
                   alt="product image"

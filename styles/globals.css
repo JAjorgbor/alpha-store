@@ -7,3 +7,11 @@
     text-wrap: balance;
   }
 }
+
+.bg-image {
+  background: url(../public/img/showcase.jpg);
+  position: top !important;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
