@@ -19,7 +19,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-feather": "^2.0.10",
-    "react-multi-carousel": "^2.8.5"
+    "react-multi-carousel": "^2.8.5",
+    "react-pro-sidebar": "^1.1.0"
   },
   "devDependencies": {
     "eslint": "^8",
