@@ -14,7 +14,9 @@ phases:
     commands:
       - zip -r build.zip .
   artifacts:
-      - "*/*"
+      - '**/*'
+  discard-paths: yes
+  base-directory: ./
 
 
     
