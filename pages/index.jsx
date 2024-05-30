@@ -4,6 +4,7 @@ import { Card, CardBody } from "@nextui-org/react";
 import CategoryCard from "@/components/cards/CategoryCard";
 import ProductCard from "@/components/product/ProductCard";
 import Meta from "@/components/Meta";
+import CustomSlider from "@/components/elements/CustomSlider";
 
 export default function Home() {
   return (
@@ -57,7 +58,7 @@ export default function Home() {
 
           <div className="space-y-5">
             <h2 className="font-bold text-2xl">Explore Popular Categories</h2>
-            <div className="flex gap-8 overflow-auto">
+            <CustomSlider itemCount={5}>
               <CategoryCard />
               <CategoryCard />
               <CategoryCard />
@@ -65,12 +66,12 @@ export default function Home() {
               <CategoryCard />
               <CategoryCard />
               <CategoryCard />
-            </div>
+            </CustomSlider>
           </div>
 
           <div className="space-y-5 my-12">
             <h2 className="font-bold text-2xl">Today&rsquo;s Deals</h2>
-            <div className="flex gap-8 overflow-auto py-8">
+            <CustomSlider>
               <ProductCard />
               <ProductCard />
               <ProductCard />
@@ -78,7 +79,7 @@ export default function Home() {
               <ProductCard />
               <ProductCard />
               <ProductCard />
-            </div>
+            </CustomSlider>
           </div>
         </div>
       </main>

@@ -11,7 +11,6 @@ import "react-multi-carousel/lib/styles.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-
 export default function App({ Component, pageProps }) {
   const authRoutes = ["/login", "/register"];
   const router = useRouter();
@@ -20,10 +19,10 @@ export default function App({ Component, pageProps }) {
       <NextUIProvider>
         {router.pathname.startsWith("/portal") ? (
           <>
-           <Providers>
+            <Providers>
               <div className="flex gap-5">
                 <PortalSidebar />
-                <div className="min-h-screen w-full">
+                <div className="min-h-screen max-w-full">
                   <PortalHeader />
                   <Component {...pageProps} />
                 </div>
