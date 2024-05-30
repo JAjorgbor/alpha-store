@@ -13,7 +13,6 @@ phases:
   post_build:
     commands:
       - zip -r build.zip .
-      - aws s3 cp build.zip s3://alpha-store-bucket/build.zip
 artifacts:
   files:
     - build.zip
