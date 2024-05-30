@@ -13,6 +13,7 @@ phases:
   post_build:
     commands:
       - zip -r build.zip .
-artifacts:
-  files:
-    - build.zip
+  artifacts:
+      - '**/*'
+
+    
