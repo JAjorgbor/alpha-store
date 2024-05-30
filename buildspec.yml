@@ -13,10 +13,8 @@ phases:
   post_build:
     commands:
       - zip -r build.zip .
-  artifacts:
-      - '**/*'
+artifacts:
+  files:
+    - '**/*'
   discard-paths: yes
   base-directory: ./
-
-
-    
