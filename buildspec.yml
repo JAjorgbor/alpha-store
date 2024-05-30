@@ -9,7 +9,6 @@ phases:
   build:
     commands:
       - npm run build
-      - npm prune --production
   post_build:
     commands:
       - zip -r build.zip .
