@@ -9,9 +9,9 @@ function PortalHeader() {
 
   return (
     <>
-      <div className="w-full py-5 flex gap-5 items-center">
+      <div className="w-4/5 py-5 flex gap-5 items-center">
         <button onClick={() => setCollapseSidebar(!collapseSidebar)}>
-          <Turn size={20} toggled={!collapseSidebar}/>
+          <Turn size={20} toggled={!collapseSidebar} />
         </button>
         <Input
           type="search"
