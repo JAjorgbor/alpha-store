@@ -14,5 +14,5 @@ phases:
       - echo Creating deployment archive...
       - mkdir deployment-package
       - mv .next deployment-package/
-      - cp -r . deployment-package/ (exclude .git folder)
+      - cp -r . deployment-package/ --exclude=.git
       - zip -r deployment-package.zip deployment-package
