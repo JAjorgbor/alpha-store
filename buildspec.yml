@@ -2,17 +2,17 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      nodejs: 20
     commands:
+      - echo Installing dependencies...
       - npm install
   build:
     commands:
+      - echo Building Next.js app...
       - npm run build
   post_build:
     commands:
-      - zip -r build.zip .
-artifacts:
-  files:
-    - '**/*'
-  discard-paths: yes
+      - echo Creating deployment archive...
+      - mkdir deployment-package
+      - mv .next deployment-package/
+      - cp -r . deployment-package/ (exclude .git folder)
+      - zip -r deployment-package.zip deployment-package
